@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "pythonbackend"
+version = "0.1.0"
+description = ""
+authors = ["lilJuan4168 <chesteraraoz12.0@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.110.2"
+uvicorn = "^0.29.0"
+python-multipart = "^0.0.9"
+slowapi = "^0.1.9"
+redis = "^5.0.3"
+limits = "^3.10.1"
+email-validator = "^2.1.1"
+websockets = "^12.0"
+fastapi-analytics = "^1.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
