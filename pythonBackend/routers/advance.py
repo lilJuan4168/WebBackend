@@ -65,6 +65,9 @@ async def get_teleport() -> RedirectResponse:
 #@limiter.limit("1/10 seconds")
 async def main(request: Request):
     content = """
+    <head>
+    Testing HTML
+    </head>
     <body>
     <form action="/files/" enctype="multipart/form-data" method="post">
     <input name="files" type="file" multiple>
@@ -74,6 +77,7 @@ async def main(request: Request):
     <input name="files" type="file" multiple>
     <input type="submit">
     </form>
+    <script type='text/javascript' src='https://websense.vtiger.com/load/widgets.js?id=VWT-5oCDjN6EVmVjrJDkcm74ac'></script>
     </body>"""    
     return HTMLResponse(content=content)
 
@@ -86,3 +90,12 @@ def hello(request: Request, username: Annotated[str, Depends(get_current_usernam
 def update_item(id: str, item: Item):
     json_compatible_item_data = jsonable_encoder(item)
     return json_compatible_item_data
+
+@MyRouter.get("/htmlResponse/vtiger", status_code=status.HTTP_423_LOCKED, tags=["Responses"])
+#@limiter.limit("1/10 seconds")
+async def vtiger(request: Request):
+    content = """
+
+    <script type='text/javascript' src='https://websense.vtiger.com/load/widgets.js?id=VWT-5oCDjN6EVmVjrJDkcm74ac'></script>
+    """   
+    return HTMLResponse(content=content)
