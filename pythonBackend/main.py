@@ -3,9 +3,9 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.encoders import jsonable_encoder
 from middleware.analytics import *
 from middleware.rateLimiter import rate_limit_exceeded_handler_status_code, limiter, RateLimitExceeded
-from dependencies import *
 from routers.advance import MyRouter
 from routers.params import MyRouter_params
+from routers.security import My_Security
 from api_analytics.fastapi import Analytics
 from models import *
 import uvicorn
@@ -16,6 +16,7 @@ app = FastAPI(title="PythonBackend", description="This is a practice backend to 
 # Include routers
 app.include_router(MyRouter)
 app.include_router(MyRouter_params)
+app.include_router(My_Security)
 
 # Create analytics
 app.add_middleware(Analytics, api_key="6b5f90f0-b010-4eea-8fa5-3e4795e5b813") 
