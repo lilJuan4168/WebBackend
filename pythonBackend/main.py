@@ -1,6 +1,7 @@
-from fastapi import FastAPI, Query, Form, Body, Request, File, UploadFile, HTTPException, status, Path, Depends
+from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from fastapi.encoders import jsonable_encoder
+from fastapi.responses import HTMLResponse
 from middleware.analytics import *
 from middleware.rateLimiter import rate_limit_exceeded_handler_status_code, limiter, RateLimitExceeded
 from routers.advance import MyRouter
@@ -28,6 +29,26 @@ app.add_exception_handler(RateLimitExceeded, rate_limit_exceeded_handler_status_
 # Add static files
 app.mount("/static", StaticFiles(directory="assets"), name="static")
 
+
+@app.get("/")
+def welcome():
+    content = """
+    <!DOCTYPE html>
+    <html lang="es">
+    <body>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <h1>Hello Everyone!!<h1>
+    <style>
+        h1 {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }  
+    </style>
+    </body>    
+    </html>
+    """
+    return HTMLResponse(content=content)
 
 
 if __name__ == "__main__":
