@@ -1,0 +1,19 @@
+[project]
+name = "webbackend"
+version = "0.1.0"
+description = "Backend python-fastapi"
+authors = [
+    {name = "juan"}
+]
+license = "MIT"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi[standard] (>=0.137.1,<0.138.0)",
+    "sqlalchemy (>=2.0.51,<3.0.0)",
+    "alembic (>=1.18.4,<2.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
