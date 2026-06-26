@@ -1,3 +1,3 @@
 from app.models.user import User
-from app.models.products import Product
-from app.models.sales import Sale
+from app.models.product import Product
+from app.models.sale import Sale
