@@ -8,8 +8,10 @@ class SaleBase(BaseModel):
     user_id: int
     product_id: int
     quantity: int
-    price: float
+    unit_price: float
+    total_price: float
     delivery_address: str
+    created_at: datetime
 
 
 class SaleCreate(SaleBase):
