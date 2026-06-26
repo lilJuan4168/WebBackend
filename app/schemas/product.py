@@ -12,6 +12,7 @@ class ProductBase(BaseModel):
     stock: int
     img_url: str
     description: str
+    created_at: Optional[datetime] = None
 
 
 class ProductCreate(ProductBase):
